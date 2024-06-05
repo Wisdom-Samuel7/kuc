@@ -6,7 +6,7 @@ const subscriber = require("./db.js")
 
 const bp = require("body-parser")
 
-
+ 
 app.use(bp.json()) 
 app.use(bp.urlencoded({extended: false}))
 app.set("view engine","ejs")
@@ -142,7 +142,7 @@ app.post("/",async (req,res)=>{
                     console.log(data.response)
                     res.redirect("/greet")
                 }
-            })
+            }) 
         }
 
 
@@ -228,6 +228,6 @@ app.get("/explore",(req,res)=>{
     res.render("../views/explore")
 })
 
-app.listen(8000,()=>{
-    console.log("PORT 8000 PORTFOLIO SITE RUNNING")
+app.listen(4000,()=>{
+    console.log("PORT 4000 PORTFOLIO SITE RUNNING")
 })
