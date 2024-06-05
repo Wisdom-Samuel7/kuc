@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowurcraft</title>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        list-style: none;
+        font-weight: bolder;
+        scroll-behavior: smooth;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    header {
+        width: 100%;
+        background: #000;
+        color: #fff;
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 1), rgba(100, 100, 200, .3)), url("https://img.freepik.com/premium-photo/man-standing-futuristic-room-with-computer_968519-10484.jpg?w=740");
+        background-position: left;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    nav {
+        width: 100%;
+        background: #000;
+        height: fit-content;
+        padding: 30px 0em;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav .h1 {
+        color: #fff;
+        font-weight: bolder;
+        font-size: x-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    nav span {
+        color: aqua;
+    }
+
+    header main {
+        width: 100%;
+        height: 110vh;
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+
+    }
+
+    header::after {
+        content: " ";
+        width: 2px;
+        height: 70px;
+        background: aqua;
+        position: absolute;
+        bottom: 0;
+        right: 4em;
+    }
+
+    .grid-a {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0em 2em;
+    }
+
+    .grid-a p {
+        margin-bottom: .7em;
+        margin-left: 0em;
+        text-align: left;
+        color: gray;
+        font-variant: small-caps;
+        font-weight: bolder;
+        font-size: x-large;
+        letter-spacing: .1em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .grid-a h2 {
+        line-height: 1.5em;
+        word-spacing: .1em;
+        letter-spacing: .2em;
+        margin: .5em 0;
+        font-weight: bolder;
+        font-family: fantasy;
+        font-size: xx-large;
+
+    }
+
+    .center {
+        margin: 2em 0;
+    }
+
+    .grid-a button {
+        padding: .6em;
+        border: none;
+        border-radius: .3em;
+        margin: 1em 1em;
+        width: 10em;
+        background: aqua;
+        font-weight: bolder;
+        transition: .5s;
+
+    }
+
+    .grid-a a {
+        color: #000;
+    }
+
+    .grid-a a:hover {
+        color: #fff;
+    }
+
+    .grid-a button:hover {
+        background: none;
+        border: 1px solid gray;
+        color: gainsboro;
+    }
+
+    .grid-b {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .grid-b div {
+        margin-bottom: 1em;
+    }
+
+    .about {
+        width: 100%;
+        height: fit-content;
+        padding: 1em 1em;
+        position: relative;
+        background: aqua;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about::after {
+        content: " ";
+        width: 2px;
+        height: 70px;
+        background: #000;
+        position: absolute;
+        top: 0;
+        right: 4em;
+    }
+
+    .headline {
+        width: 80%;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .headline h1,
+    p {
+        text-align: justify;
+        margin: 1em 0;
+
+    }
+
+    .headline h1 {
+        color: white;
+        text-align: center;
+        font-weight: bolder;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        position: relative;
+        font-size: xx-large;
+
+    }
+
+    .headline h1::before {
+        content: " ";
+        position: absolute;
+        bottom: -.3em;
+        width: 30%;
+        height: 2px;
+        background: #fff;
+    }
+
+    .headline p {
+        color: slateblue;
+        letter-spacing: .1em;
+        line-height: 1.8em;
+        font-family: sans-serif;
+    }
+
+    .tags h1::before {
+        content: " ";
+        position: absolute;
+        bottom: -.3em;
+        width: 30%;
+        height: 2px;
+
+    }
+
+    .tags h1 {
+        font-size: 3em;
+        font-weight: bolder;
+        color: gray;
+    }
+
+    .tags p {
+        color: royalblue;
+        letter-spacing: .3em;
+
+    }
+
+    .desc {
+        width: 100%;
+        height: fit-content;
+        background: cornflowerblue;
+        padding: 6em 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3em;
+        /* background-image: url("");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat; */
+
+    }
+
+    .desc .intro,
+    h1 {
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin-bottom: 1.5em;
+
+    }
+
+    .desc h1 {
+        color: aquamarine;
+    }
+
+    .intro {
+        color: darkcyan;
+        font-weight: bolder;
+        letter-spacing: .5em;
+        font-size: large;
+    }
+
+    .desc main {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
+
+
+    }
+
+    .desc main h2 {
+        color: crimson;
+    }
+
+    .desc main p {
+        color: gainsboro;
+        line-height: 1.5em;
+        text-align: center;
+    }
+
+    .gallery {
+        width: 100%;
+        height: fit-content;
+        padding: 2em 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
+        overflow-x: scroll;
+
+    }
+
+    .gallery h2 {
+        color: blue;
+        font-size: xx-large;
+        letter-spacing: .2em;
+    }
+
+    .slide {
+        width: 100vw;
+        height: fit-content;
+        padding: 2em 2em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
+        overflow-x: scroll;
+    }
+
+    img {
+        border: none;
+        border-radius: .5em;
+        height: auto;
+    }
+
+    footer {
+        width: 100%;
+        padding: 2em 1em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1em;
+        background: #000;
+    }
+
+    footer input {
+        padding: 1em;
+        border: none;
+        border-radius: 1em;
+        font-weight: lighter;
+        display: ruby-base;
+        margin-right: .3em;
+        margin-bottom: 1em;
+    }
+
+    h3 {
+        font-weight: lighter;
+        font-family: 'Courier New', Courier, monospace;
+        color: azure;
+
+    }
+
+    .mobile {
+        display: none;
+        width: 50vw;
+        height: 120vh;
+        position: fixed;
+        top: 3em;
+        right: 3em;
+        background: darkgoldenrod;
+        display: none;
+        z-index: 10000;
+        transition: 1s;
+        padding: 2em 1em;
+    }
+
+    .mobile:target {
+        width: 40vw;
+        height: 120vh;
+        position: fixed;
+        top: 0em;
+        right: 0;
+        background: black;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 2em 0;
+        align-items: center;
+        z-index: 10000;
+        animation: mobilemenu .5s forwards ease-in-out;
+    }
+
+    @keyframes mobilemenu {
+        from {
+            right: -3em;
+            opacity: 0;
+        }
+
+        to {
+            right: 0;
+            opacity: 1;
+        }
+    }
+
+    .mobile ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2em;
+        margin-bottom: 2em;
+        animation: softslide .4s forwards ease-in;
+        animation-delay: .2s;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    @keyframes softslide {
+        from {
+            transform: translateX(6em);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .mobile li a {
+        color: beige;
+    }
+
+    h6 {
+        font-size: smaller;
+        word-spacing: 2em;
+        margin: 3em 0;
+        color: greenyellow;
+    }
+
+    .mobile-svg {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+        margin-top: 2em;
+    }
+
+
+    .custom-shape-divider-top-1715530345 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .custom-shape-divider-top-1715530345 svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 90px;
+    }
+
+    .custom-shape-divider-top-1715530345 .shape-fill {
+        fill: cornflowerblue;
+    }
+
+    .custom-shape-divider-top-1715532311 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .custom-shape-divider-top-1715532311 svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 99px;
+    }
+
+    .custom-shape-divider-top-1715532311 .shape-fill {
+        fill: aqua;
+    }
+
+    @media screen and (min-width:768px) {
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        nav ul li {
+            margin-right: 3.5em;
+            color: #fff;
+        }
+
+        nav li a {
+            color: #fff;
+        }
+
+        .mobile {
+            display: none;
+        }
+
+        .mobile:target {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <header>
+
+        <nav>
+            <div>
+                <div data-aos="zoom-in-right" class="h1">Knowur<span style="font-family: cursive;">Craft</span></div>
+            </div>
+            <div class="menu">
+                <a href="#menuopen">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff" class="bi bi-list"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </a>
+            </div>
+
+            <ul>
+                <li> <a href="/">HOME</a> </li>
+                <li> <a href="#skills">SKILL</a> </li>
+                <li> <a href="contact">BOOK A CLASS</a> </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div id="menuopen" class="mobile">
+            <h6>NAVIGATION
+                <a href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="lightgreen" class="bi bi-x-lg"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg>
+                </a>
+            </h6>
+            <ul>
+                <li><a style="color: royalblue;" href="/">HOME</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="contact">CONTACT</a></li>
+                <li><a href="explore">EXPLORE</a></li>
+                <li><a href="#about"> ABOUT </a></li>
+                <li><a href="contact">BOOK A CLASS</a></li>
+
+            </ul>
+
+            <div class="mobile-svg">
+                        <!-- <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="gray" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                </svg>
+                </a>
+
+                <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="gray" class="bi bi-youtube" viewBox="0 0 16 16">
+                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                </svg>
+                </a>  -->
+
+                <a href="https://wa.me/09043510600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="greenyellow"
+                        class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                    </svg>
+                </a>
+
+                <a href="https://github.com/Wisdom-Samuel7/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="greenyellow"
+                        class="bi bi-github" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+
+        <main>
+            <div class="grid-a">
+                <p data-aos="fade-left">Welcome to Knowurcraft</p>
+                <h2>The main goal is for you to KNOW UR CRAFT through impact... </h2>
+
+                <div>
+                    <button data-aos="fade-left"><a href="#subscribe">JOIN US</a></button>
+                    <button data-aos="fade-right"><a href="#about">ABOUT</a></button>
+                </div>
+            </div>
+
+            <div class="grid-b">
+
+                <!--
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="gray" class="bi bi-facebook" viewBox="0 0 16 16">
+                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                </svg>
+                 -->
+
+                <a href="https://www.youtube.com/channel/UCRlgbM2nMXL_bnXeUi_dtDw">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="bi bi-youtube"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                    </svg>
+                </a>
+
+                <a href="https://wa.me/09043510600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="bi bi-whatsapp"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                    </svg>
+                </a>
+
+                <a href="https://github.com/Wisdom-Samuel7/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="bi bi-github"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                    </svg>
+                </a>
+
+            </div>
+        </main>
+
+
+    </header>
+
+
+    <section class="about" id="about">
+
+
+        <div class="custom-shape-divider-top-1715530651">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                    opacity=".25" class="shape-fill"></path>
+                <path
+                    d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                    opacity=".5" class="shape-fill"></path>
+                <path
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+
+
+        <div class="headline">
+
+            <h1 data-aos="fade-left">About Us</h1>
+            <p data-aos="flip-right">Welcome to WIS-TUTOR (KNOW UR CRAFT)!.This was founded by Wisdom Samuel, a
+                passionate Math tutor, Full stack (MERN) / App developer and Music Producer...He has taught in several
+                schools inter-state ,gained certificate in Web devlopment and worked with several audio institute.Wisdom
+                Samuel is a lover of GOD with interest in building others.Let's connect,collaborate,and explore the
+                possibilities together ... </p>
+        </div>
+
+        <div class="headline">
+            <div class="tags">
+                <h1 data-aos="zoom-in"> 150 +</h1>
+                <p>PROJECT</p>
+            </div>
+
+            <div class="tags">
+                <h1 data-aos="zoom-in"> 500 +</h1>
+                <p>CLIENTS TAUGHT</p>
+            </div>
+
+            <div class="tags">
+                <h1 data-aos="zoom-in"> 100 +</h1>
+                <p>AUDIO PROJECT</p>
+            </div>
+
+            <div class="tags">
+                <h1 data-aos="zoom-in"> 3 +</h1>
+                <p>COUNTRIES</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="desc" id="skills" style="position: relative;">
+
+        <div class="custom-shape-divider-top-1715532311">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <p class="intro">WHAT WE DO</p>
+        <h1>WE ENGAGE IN EDUCATIONAL AND SKILLFULL PRACTICES ...</h1>
+
+        <main data-aos="zoom-in-bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="snow" class="bi bi-code-slash"
+                viewBox="0 0 16 16">
+                <path
+                    d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
+            </svg>
+            <h2> TECH </h2>
+            <p>We educate on tech skills.Learning tech involves embracing a dynamic journey of acquiring skill in
+                various technologies.From programming languages and frameworks to understanding system architecture and
+                cloud computing.Tech also covers concept such as web and app development which involves mastering both
+                front end and back end technologies.Front end skills include HTML,CSS,JAVASCRIPT for creating UI,while
+                back-end skills involve server-side scripting,database, and server management.</p>
+        </main>
+
+        <main data-aos="zoom-in-bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="snow" class="bi bi-music-note-beamed"
+                viewBox="0 0 16 16">
+                <path
+                    d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13s1.12-2 2.5-2 2.5.896 2.5 2m9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2" />
+                <path fill-rule="evenodd" d="M14 11V2h1v9zM6 3v10H5V3z" />
+                <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4z" />
+            </svg>
+            <h2> MUSIC </h2>
+            <p>We cover music concept for both instrumental and music production.Learning music production is a
+                multifaceted journey encompassing sound design.Mastering digital audio work stations (DAWs) like FL
+                STUDIO,LOGIC,CUBASE,ABLETON,etc is crucial. </p>
+        </main>
+
+        <main data-aos="zoom-in-bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="snow" class="bi bi-mortarboard"
+                viewBox="0 0 16 16">
+                <path
+                    d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917zM8 8.46 1.758 5.965 8 3.052l6.242 2.913z" />
+                <path
+                    d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46z" />
+            </svg>
+            <h2> EDUCATION </h2>
+            <p>Learnning math involves building a solid foundation in fundamental concept such as
+                arithmetics,algebra,geometry and calculus.Developing a logical and analytical mindset is crucial for
+                tackling complex problems.We have well read professional who can ensure you in that journey</p>
+        </main>
+
+    </section>
+
+
+    <sectionc class="gallery" style="position: relative;">
+
+        <div class="custom-shape-divider-top-1715530345">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <h2 data-aos="fade-right">ACTIVITIES ...</h2>
+
+
+        <div class="slide">
+            <div class="pics">
+                <img data-aos="zoom-in" src="https://i.pinimg.com/236x/ac/88/38/ac8838e5f2d10e16475243108e168e3a.jpg"
+                    alt="">
+
+            </div>
+
+            <div class="pics">
+                <img data-aos="flip-right" src="https://i.pinimg.com/236x/52/19/d9/5219d9b3f4606ed553479e91b2b9b8d2.jpg"
+                    alt="">
+
+            </div>
+
+            <div class="pics">
+                <img data-aos="flip-left" src="https://www.pinterest.com/pin/818318194818949186/" alt="">
+
+            </div>
+
+            <div class="pics">
+                <img src="" alt="">
+
+            </div>
+
+            <div class="pics">
+                <img data-aos="flip-right" src="https://www.pinterest.com/pin/818318194818949186/" alt="">
+
+            </div>
+        </div>
+
+
+        </section>
+
+        <footer id="subscribe">
+            <h3>SUBSCRIBE</h3>
+            <form action="/" method="post">
+                <input type="email" name="email" placeholder="Email Address">
+                <input type="submit" value="SUBSCRIBE">
+            </form>
+
+        </footer>
+
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+            integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <script>
+            AOS.init({ duration: 1000 })
+            const form = document.querySelector("form")
+            const email = form.email
+
+
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Knowurcraft </title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        list-style: none;
+        font-weight: bolder;
+        scroll-behavior: smooth;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    header {
+        width: 100%;
+        background: #000;
+        color: #fff;
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 1), rgba(100, 100, 200, .3)), url("https://img.freepik.com/premium-photo/man-standing-futuristic-room-with-computer_968519-10484.jpg?w=740");
+        background-position: left;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    nav {
+        width: 100%;
+        background: #000;
+        height: fit-content;
+        padding: 30px 0em;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav .h1 {
+        color: #fff;
+        font-weight: bolder;
+        font-size: x-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    nav span {
+        color: aqua;
+    }
+
+    /* section{
+        position: relative;
+    } */
+    section .box {
+        width: 90vw;
+        height: 50vh;
+        margin: 2em auto;
+        background: rgba(100, 0, 0, .7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .image-box {
+        width: 80%;
+        height: 60%;
+        background: rgb(250, 0, 0, .1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* position: relative; */
+    }
+
+    .image-box::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: " ";
+        width: 6em;
+        height: 1em;
+        background: #fff;
+
+    }
+
+    .image-box::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: " ";
+        width: 1em;
+        height: 6em;
+        background: #fff;
+
+    }
+
+    .circle {
+        width: 6em;
+        height: 6em;
+        border-radius: 50%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: .6em;
+        color: slategray;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-align: center;
+        position: relative;
+        overflow-y: scroll;
+
+    }
+
+    .a::before {
+        content: ' ';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        animation: volumeA 1s forwards;
+        background: rgba(20, 20, 250, .6);
+    }
+
+    @keyframes volumeA {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 75%;
+        }
+    }
+
+    .b::before {
+        content: ' ';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        animation: volumeB 2.4s forwards;
+        background: rgba(20, 20, 250, .6);
+    }
+
+
+    @keyframes volumeB {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 90%;
+        }
+    }
+
+
+    .c::before {
+        content: ' ';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        animation: volumeC 1.5s forwards;
+        background: rgba(20, 20, 250, .6);
+    }
+
+
+    @keyframes volumeC {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 85%;
+        }
+    }
+
+    .images {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1em;
+    }
+
+    .images img {
+        width: 8em;
+        height: 8em;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: .5rem .6em;
+        transition: .6s;
+        filter: grayscale(100%);
+        border: 2px solid chartreuse;
+
+    }
+
+    img:hover {
+        scale: 1.1;
+
+    }
+</style>
+
+<body>
+
+    <nav>
+
+        <div>
+            <div data-aos="zoom-in-right" class="h1" style="color: cornflowerblue;font-family: fantasy;">Knowur<span
+                    style="font-family: cursive;">Craft</span></div>
+        </div>
+
+        <div class="menu">
+            <!-- <a href="/generateid">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="cornflowerblue"
+                    class="bi bi-diagram-2" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5zM3 11.5A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+                </svg>
+            </a> -->
+        </div>
+
+    </nav>
+
+    <section style="height: 100vh;">
+        <div>
+            <h1 style="margin: .3em .5em;font-size: 2.5em;font-family: sans-serif;">Prowness</h1>
+            <p style="margin: 0em 2em;font-weight: 300;color: slategray;letter-spacing: .5em;">Skills</p>
+        </div>
+
+        <main class="box">
+            <div class="image-box">
+                <h1 style="text-align: center;color: #fff;font-family: sans-serif;margin: .3em;">Top Skills</h1>
+
+                <div style="display: flex;align-items: center;gap: 2em;">
+                    <div class="circle a"> Branding <p>75%</p>
+                    </div>
+                    <div class="circle b"> Creation <p>90%</p>
+                    </div>
+                    <div class="circle c"> Critical Thinking <p>85%</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+
+        <div>
+            <h1 style="margin: .3em .5em;font-size: 2.5em;font-family: sans-serif;">Gallery</h1>
+            <p style="margin: 0em 2em;font-weight: 300;color: slategray;letter-spacing: .5em;">Reviews</p>
+        </div>
+
+
+        <main class="box" style="height: fit-content;">
+
+            <div class="image-box">
+                <h1 style="text-align: center;color: #fff;font-family: sans-serif;margin: 1em auto;">Impact</h1>
+
+                <div class="images">
+
+                    <div>
+                        <img data-aos="zoom-in" src="public/WhatsApp Image 2024-05-26 at 5.06.47 PM (1).jpeg" alt="" srcset="">
+                    </div>
+
+                    <div>
+                        <img data-aos="zoom-in" src="public/WhatsApp Image 2024-05-26 at 5.07.22 PM (1).jpeg" alt="" srcset="">
+                    </div>
+
+
+                    <div>
+                        <img data-aos="zoom-in" src="public/WhatsApp Image 2024-06-05 at 11.35.29 AM.jpeg" alt="" srcset="">
+                    </div>
+
+                    <div>
+                        <img data-aos="flip-left" src="public/WhatsApp Image 2024-06-05 at 11.35.29 AM (3).jpeg" alt="" srcset="">
+                    </div>
+
+                    <div>
+                        <img data-aos="flip-left" src="public/WhatsApp Image 2024-06-05 at 11.35.29 AM (4).jpeg" alt="" srcset="">
+                    </div>
+
+
+                    <div>
+                        <img data-aos="flip-left" src="public/WhatsApp Image 2024-06-05 at 11.35.29 AM (2).jpeg" alt="" srcset="">
+                    </div>
+
+
+                    <div>
+                        <img data-aos="fade-right" src="public/WhatsApp Image 2024-06-05 at 11.34.17 AM.jpeg" alt="" srcset="">
+                    </div>
+
+
+                    <div>
+                        <img data-aos="fade-up"  src="public/WhatsApp Image 2024-06-05 at 11.33.37 AM.jpeg" alt="" srcset="">
+                    </div>
+
+
+                    <div>
+                        <img data-aos="fade-left"  src="public/WhatsApp Image 2024-06-05 at 11.24.47 AM (1).jpeg" alt="" srcset="">
+                    </div>
+
+                    <h2 style="text-align: center;color: #fff;">And many more ... </h2>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        AOS.init({ duration: 1000 })
+        const form = document.querySelector("form")
+        const email = form.email
+
+
+    </script>    
+</body>
+
+</html>

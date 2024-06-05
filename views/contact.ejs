@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowurcraft</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+        font-weight: bolder;
+
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    nav {
+        width: 100%;
+        background: #000;
+        height: fit-content;
+        padding: 30px 0em;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav .h1 {
+        color: #fff;
+        font-weight: bolder;
+        font-size: x-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    nav span {
+        color: aqua;
+    }
+
+    .mobile {
+        display: none;
+        width: 40vw;
+        height: 120vh;
+        position: fixed;
+        top: 3em;
+        right: 3em;
+        background: darkgoldenrod;
+        display: none;
+        z-index: 10000;
+        transition: 1s;
+        padding: 1em 1em;
+    }
+
+    .mobile:target {
+        width: 50vw;
+        height: 120vh;
+        position: fixed;
+        top: 0em;
+        right: 0;
+        background: black;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 2em 0;
+        align-items: center;
+        z-index: 10000;
+        animation: mobilemenu .5s forwards ease-in-out;
+    }
+
+    @keyframes mobilemenu {
+        from {
+            right: -3em;
+            opacity: 0;
+        }
+
+        to {
+            right: 0;
+            opacity: 1;
+        }
+    }
+
+    .mobile ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2em;
+        margin-bottom: 2em;
+        animation: softslide .4s forwards ease-in;
+        animation-delay: .2s;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    @keyframes softslide {
+        from {
+            transform: translateX(6em);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .mobile li a {
+        color: beige;
+    }
+
+    h6 {
+        font-size: smaller;
+        word-spacing: 2em;
+        margin: 3em 0;
+        color: greenyellow;
+    }
+
+    .mobile-svg {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+        margin-top: 2em;
+    }
+
+    section {
+        width: 100vw;
+        height: 90vh;
+        background: #000;
+        color: #fff;
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 1), rgba(100, 100, 20, .3)), url("https://img.freepik.com/premium-photo/fun-3d-cartoon-medieval-man_183364-115453.jpg?w=740");
+        background-position: left;
+        background-attachment: fixed;
+        background-size: cover;
+        padding: 3em 0em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 
+    section {
+        width: 100vw;
+        height: 90vh;
+        background: rgba(0, 0, 0, 1);
+        padding: 3em 0em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+    } */
+
+    form {
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1em;
+
+    }
+
+    input {
+        padding: 1em 1em;
+        border: none;
+        border-radius: .02px;
+        background: transparent;
+        border-bottom: 0px solid grey;
+        color: lightgreen;
+        font-weight: bolder;
+        font-family: sans-serif;
+        border: none;
+        border-bottom: .3px solid aquamarine;
+        border-radius: .1em;
+        width: 20em;
+        background: transparent;
+    }
+
+    button {
+        padding: 1em 1em;
+        border: none;
+        border-radius: .02px;
+        background: aqua;
+        border-bottom: 0px solid grey;
+        color: crimson;
+        font-weight: bolder;
+        font-family: 'Courier New', Courier, monospace;
+        border: .3px solid rgba(100, 0, 0, .7);
+        border-radius: .5em;
+        width: 80%;
+        letter-spacing: .5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+
+    }
+
+    textarea {
+        background: powderblue;
+        color: blanchedalmond;
+        padding: .5em .5em;
+        margin-top: 1em;
+        border: none;
+        width: 80%;
+        border-radius: .6em;
+        border: .3px solid rgba(100, 100, 100, .7);
+        border-radius: .5em;
+    }
+
+    h1 {
+        font-size: 2em;
+        font-family: monospace;
+        color: #fff;
+    }
+
+    @media screen and (min-width:768px) {
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            color: #fff;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        nav ul li {
+            margin-right: 3.5em;
+        }
+
+        nav li a {
+            color: #fff;
+        }
+
+        .mobile {
+            display: none;
+        }
+
+        .mobile:target {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <nav>
+        <div>
+            <div data-aos="zoom-in-right" class="h1">Wis- <span>Tutor</span></div>
+        </div>
+        <div class="menu">
+            <a href="#menuopen">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff" class="bi bi-list"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+            </a>
+        </div>
+
+        <ul>
+            <li> <a href="/">HOME</a> </li>
+            <li> <a href="#skills">SKILL</a> </li>
+            <li> <a href="contact">BOOK A CLASS</a> </li>
+
+        </ul>
+
+    </nav>
+
+
+    <div id="menuopen" class="mobile">
+        <h6>NAVIGATION *</h6>
+        <ul>
+            <li><a href="/">HOME</a></li>
+
+            <li><a style="color: royalblue;" href="contact">CONTACT</a></li>
+
+        </ul>
+
+        <div class="mobile-svg">
+            <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="gray" class="bi bi-facebook"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                </svg>
+            </a>
+
+            <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="gray" class="bi bi-youtube"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                </svg>
+            </a>
+
+            <a href="https://wa.me/09043510600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="greenyellow" class="bi bi-whatsapp"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                </svg>
+            </a>
+
+            <a href="https://github.com/Wisdom-Samuel7/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="greenyellow" class="bi bi-github"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                </svg>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- FORM SECTION FOR TRANSFER PROTOCOL (POST REQUEST...) -->
+    <section>
+
+        <form action="/contact" method="post">
+            <h1>CONTACT PAGE </h1>
+            <input data-aos="fade-left" type="email" name="email" placeholder="Type your email ...">
+            <input data-aos="fade-right" type="number" name="tel" placeholder="Type your tel ...">
+            <textarea data-aos="zoom-in-bottom" name="message" cols="30" rows="10"
+                placeholder="Reach out here or book a class... "></textarea>
+
+            <button data-aos="flip-right" type="submit"
+                style="color: #fff;background: crimson;border-radius: .7em;border: none;" value="Submit">
+                Submit <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"/>
+                  </svg>
+            </button>
+        </form>
+
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</body>
+
+</html>
